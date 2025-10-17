@@ -31,3 +31,17 @@ dbservers:
       ansible_ssh_common_args: >-
         -o StrictHostKeyChecking=no
         -o UserKnownHostsFile=/dev/null
+
+east:
+  hosts:
+    web.example.com:
+    db.example.com:
+west:
+  hosts:
+    mail.example.com:
+prod:
+  children:
+    east:
+test:
+  children:
+    west:
